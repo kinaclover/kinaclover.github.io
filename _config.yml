@@ -16,19 +16,39 @@
 title: My awesome page - testing
 email: kinaclover@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  It is a personal blog.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://kinaclover.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+#source_url: #source files
+navigation: True
+category_dir: category/
+tag_dir: tag/
+#disqus
+#disqus: True
+#disqus_shortname: kinaclover
+timezone: Asia/Seoul
+
+# Google Analytics
+google_analytics:  # replace with your GA tracking identifier
+# Google Analytics을 사용할 경우 GA tracking identifier를 입력
+
+# Permalinks
+#permalink: /:title
+# permalink: /author/:author
+# permalink: /tag/:title
+# 각각의 post에 고정주소를 어떤 방식으로 할당할 것인지를 결정
+# 이 값을 바꾸면 작성한 포스트의 저장위치나 파일이름이 변경된다.
+
 #twitter_username: ""
 github_username:  kinaclover
+favicon:
 
 # Build settings
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
