@@ -17,3 +17,4 @@ categories: daily
 
 ###### 오늘의 참조글
 > - [http://www.halryang.net/embed-youtube-responsively/](http://www.halryang.net/embed-youtube-responsively/)
+> - [https://embedresponsively.com/](https://embedresponsively.com/)
