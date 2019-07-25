@@ -36,4 +36,4 @@ _That is, in pursuit of the items on the left **we have found the items on the r
 <br>  
 <br>  
 
-> - [Manifesto for Software Craftsmanship](http://manifesto.softwarecraftsmanship.org/)
+- [Manifesto for Software Craftsmanship](http://manifesto.softwarecraftsmanship.org/)
