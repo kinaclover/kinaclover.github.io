@@ -1,0 +1,141 @@
+---
+layout: post
+title: "Vue.js Tutorial - 01"
+date: 2019-08-24 19:00 +0900
+categories: Vue.js
+---
+---
+드디어 시작하는 Vue.js Tutorial.  
+_[고양이도 할 수 있는 Vue.js](https://rintiantta.github.io/jpub-vue/)_ 라는 책으로 공부를 시작해 본다.  
+꽤 오래전에 책을 구입했지만, ~~게으름으로 인해~~ 이제서야 제대로 책을 살펴보는 중이다.
+
+책에서 공부한 부분의 내용을 요약 및 정리하고,  
+주요 내용을 기록해 둠으로써 복습에 활용하기 위해 글을 적는다.
+
+---
+
+### __Framework__
+- 애플리케이션의 설계를 도와주는 _뼈대_ 역할의 기본적인 기능과 규칙을 제공해주는 틀
+
+### __Vue.js 란?__  
+- 자바스크립트로 구성된 프레임워크.
+- _[공식 페이지](https://kr.vuejs.org/)_ 를 확인하도록 하자. 정말 잘 설명되어 있다 종종 확인할 것.
+
+### __Data binding__  
+- 자바스크립트의 데이터를 변경하면 랜더링된 결과물도 함께 변경되는 것. 
+- Vue.js 의 주요 기능이라고 보면 될 것 같다
+
+### __Directives__
+
+- Vue.js 에서 사용되는 특별한 속성 *(2.0 부터 적용)*  
+- HTML 태그안에 작성, `v-` 로 시작함
+
+### __Vue Instance__
+- _index.html_
+  ```html
+    <div id="app">
+        <!-- The rendering results are shown here. -->
+    </div>
+  ```  
+  _main.js_
+  ```javascript
+    var app = new Vue({
+        //Options..
+    })  
+  ```
+- 반드시 변수로 만들 필요가 있는것은 아님
+- 리턴 값은 루트 인스턴스이며, 이를 활용하여 콘솔 등에서 디버그할 때 사용할 수 있음
+- 변수에 할당할 경우, 관례적으로 app 또는 vm(View Model)을 변수 이름으로 사용
+
+### __Text binding__
+- index.html
+  ```html
+      <p> {{ message }} </p>
+  ```
+  main.js
+  ```javascript
+    var app = new Vue({
+        el : '#app',
+        data : {
+            message : 'Hello Vue.js!'
+        }
+    })
+  ```
+- {{ }} 안에 원하는 값을 적어서 전달
+- 해당 값을 외부에서 접근할 때는 `app.message` 로 접근 가능 _(data를 거치지 않음)_
+
+### __List rendering__
+- _index.html_
+  ```html
+    <ol>
+        <li v-for="item in list"> {{ item }} </li>
+    </ol>
+  ```
+  _main.js_
+  ```javascript
+    var app = new Vue({
+        el : '#app',
+        data : {
+            list : ['Apple', 'Banana', 'Orange']
+        }
+    })
+  ```
+- `v-for` 디렉티브를 사용하여 반복을 적용할 수 있음
+- 콘솔에서 `app.list.push('Strawberry')` 라는 식으로 추가가능
+- `v-for` 에 입력하는 값은 `"[item] in [list]"` 로 구분되는 값으로 각 값에 맞는 값을 넣어주면 됨
+
+### __Event__
+- _index.html_
+  ```html
+    <button v-on:click="handleClick">Click</button>
+  ```
+  _main.js_
+  ```javascript
+    var app = new Vue({
+      el : '#app',
+      methods : {
+        handleClick : function(event) {
+          alert(event.target)  //[object HTMLButtonElement]
+        }
+      }
+    })
+  ```
+- `v-on` 디렉티브를 이용하여 DOM 이벤트 바인딩을 적용
+- `addEventListener` 또는 *jQuery*의 `$(element).on` 메서드와 비슷하게 작용
+- 값으로는 해당 메서드의 이름을 확인
+
+### __Synchronous__
+- _index.html_
+  ```html
+    <p> {{ message }} </p>
+    <input v-model="message"/>
+  ```
+  _main.js_
+  ```javascript
+    var app = new Vue({
+      el : 'app',
+      data : {
+        message : 'Default message'
+      }
+    })
+  ```
+- `v-model` 디렉티브를 사용하여 입력 양식의 값과 동기화
+- `v-model.number` 처럼 `.number` 장식자를 붙여주면 입력 값을 숫자로 받을 수 있음
+
+### __Conditional Rendering__
+- _index.html_
+  ```html
+    <p v-if="show">Hello Vue.js!</p>
+  ```
+  _main.js_
+  ```javascript
+    var app = new Vue({
+      el : '#app',
+      data : {
+        show : true
+      }
+    })
+  ```
+- `v-if` 디렉티브를 이용하여 조건을 검토한 뒤에 렌더링
+- 위의 예시같이 값 이나 조건식을 통해 `ture` 일 경우에 렌더링
+- 값으로 입력된 경우라면 콘솔에서 값을 조절할 수 있음 _(ex> `app.show = false`)_
