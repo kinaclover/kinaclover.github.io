@@ -11,7 +11,8 @@ categories: Vue.js
 이런저런 핑계로 계속 미뤄오다 이번에 시작해본다.
 
 우선은 책의 예제를 쭉 따라가보며 작성을 해 보고, 하나하나 분석해볼 예정이다.  
-_[(스프링부트 시작하기/프로그래밍인사이트)](https://github.com/insightbook/Spring-Boot)_
+_[(스프링부트 시작하기/프로그래밍인사이트)](https://github.com/insightbook/Spring-Boot)_  
+_[(작성중인 실습소스)](https://github.com/kinaclover/SB_Board)_
 
 이 곳은 아직 꾸준한 작성은 커녕 정리도 제대로 안되어있기에
 일단 기록성으로 글을 남겨둔다.
@@ -48,3 +49,10 @@ _[(스프링부트 시작하기/프로그래밍인사이트)](https://github.com
 - log4j 의 계승작 (개발자가 같음)
 - log4j 를 기반으로 다시 작성된 라이브러리
 - 보다 향상된 성능을 가졌으며, 서버의 재시작 없이 변경된 설정 적용 가능
+
+### MyBatis 의 활용
+- DAO 를 사용하는 것 보다 SqlSessionDaoSupport 나 SqlSessionTemplate 을 사용하는것을 권장함
+    - 이를 통해 매퍼를 생성하여 사용하면 일일이 DAO를 만들지 않고, Interface 만을 이용하여 좀 더 편하게 개발할 수 있음
+- @Mapper 어노테이션을 이용하여 매퍼 인터페이스 생성
+    - 해당 매퍼를 namespace 로 지정하여 xml 작성
+    - 메서드의 이름과 sql ID 를 일치시키면 사용 가능
